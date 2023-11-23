@@ -1,19 +1,21 @@
 import "~/styles/globals.css";
 
-import { Inter } from "next/font/google";
+import { Encode_Sans_Condensed } from "next/font/google";
 import { cookies } from "next/headers";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
-const inter = Inter({
+const encode_sans_condensed = Encode_Sans_Condensed({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-encode-sans-condensed",
+  weight: "200",
 });
 
 export const metadata = {
   title: "Orwa Development",
 
-  description: "Orwa, a freelancer making website, web apps, mobile apps.",
+  description:
+    "Orwa, a freelancer, making website, mobile apps and custom software.",
 
   icons: [{ rel: "icon", url: "/logo/white_svg.svg", sizes: "any" }],
 };
@@ -24,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
+    <html lang="en" className={`font-sans ${encode_sans_condensed.variable}`}>
+      <body>
         <TRPCReactProvider cookies={cookies().toString()}>
           {children}
         </TRPCReactProvider>
