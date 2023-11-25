@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { getI18n, getCurrentLocale } from "~/locales/server";
 import {
   faFacebookSquare,
   faInstagram,
@@ -9,10 +9,14 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { clsx } from "clsx";
 
-const Header = () => {
+const Header = async () => {
+  const t = await getI18n();
+  const locale = getCurrentLocale();
+
   return (
-    <section className="flex w-full items-stretch gap-6">
+    <section className=" flex w-full items-stretch gap-6">
       <div className="flex ">
         <Image
           src="/logo/white_svg.svg"
@@ -20,19 +24,20 @@ const Header = () => {
           width={900}
           height={900}
           unoptimized
+          priority
         />
       </div>
 
-      <div className="font-encode flex  flex-col justify-between gap-9 text-3xl">
-        <p>Orwa Shams</p>
-        <div>
-          <p className="flex text-4xl">
-            I&apos;ll develop your digital product.
-          </p>
-          <p>
-            Websites, mobile applications, or custom software tailored to meet
-            your specific needs.
-          </p>
+      <div
+        className={clsx("flex flex-col  justify-between gap-9  text-3xl", {
+          "font-encode": locale === "en",
+          "font-hebrew ": locale === "he",
+        })}
+      >
+        <p>{t("owner.name")}</p>
+        <div className="flex flex-col gap-4">
+          <p className="flex text-4xl">{t("owner.description")}</p>
+          <p>{t("owner.developer")}</p>
         </div>
         <span className="flex h-9 gap-6">
           <Link

@@ -1,7 +1,12 @@
 import "~/styles/globals.css";
 
-import { Encode_Sans_Condensed } from "next/font/google";
+import {
+  Encode_Sans_Condensed,
+  Noto_Sans_Hebrew,
+  Amatic_SC,
+} from "next/font/google";
 import { cookies } from "next/headers";
+import { getCurrentLocale } from "~/locales/server";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -11,8 +16,14 @@ const encode_sans_condensed = Encode_Sans_Condensed({
   weight: "200",
 });
 
+const noto_sans_hebrew = Amatic_SC({
+  subsets: ["hebrew"],
+  variable: "--font-noto-sans-hebrew",
+  weight: "700",
+});
+
 export const metadata = {
-  title: "Orwa Development",
+  title: "Orwa",
 
   description:
     "Orwa, a freelancer, making website, mobile apps and custom software.",
@@ -25,8 +36,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale = getCurrentLocale();
+
   return (
-    <html lang="en" className={`font-sans ${encode_sans_condensed.variable}`}>
+    <html
+      lang="en"
+      dir={locale === "en" ? "ltr" : "rtl"}
+      className={`${encode_sans_condensed.variable} ${noto_sans_hebrew.variable}`}
+    >
       <body>
         <TRPCReactProvider cookies={cookies().toString()}>
           {children}
