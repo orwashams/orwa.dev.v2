@@ -42,8 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      dir="ltr"
-      className={`${encode_sans_condensed.variable} ${amatic_sc.variable} ${vazirmatn.variable}`}
+      className={`${encode_sans_condensed.variable} ${amatic_sc.variable} ${vazirmatn.variable} bg-gradient-to-b from-[#13172e] to-[#15162c]`}
     >
       <body>
         <TRPCReactProvider cookies={cookies().toString()}>

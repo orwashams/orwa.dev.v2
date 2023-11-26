@@ -16,31 +16,36 @@ const Header = async () => {
   const locale = getCurrentLocale();
 
   return (
-    <section className=" flex w-full flex-col items-stretch gap-6 md:flex-row">
-      <div className="h-fill relative flex w-full ">
+    <section className="container flex w-full flex-col items-stretch gap-6 md:flex-row">
+      <div className="flex h-auto w-full ">
         <Image
           src="/logo/white_svg.svg"
           alt="Logo"
-          fill
-          objectFit="contain"
+          width={700}
+          height={700}
           unoptimized
           priority
         />
       </div>
 
       <div
-        className={clsx("flex flex-col  justify-between gap-9  text-3xl", {
+        className={clsx("flex  flex-col justify-between  text-3xl", {
           "font-encode": locale === "en",
           "text-right font-hebrew text-4xl ": locale === "he",
-          "font-arabic text-right text-4xl": locale === "ar",
+          "text-right font-arabic text-4xl": locale === "ar",
         })}
       >
         <p className="text-5xl">{t("owner.name")}</p>
-        <div className="flex flex-col gap-4 tracking-wider">
-          <p className="flex text-6xl">{t("owner.description")}</p>
-          <p>{t("owner.developer")}</p>
+        <div className="flex flex-col gap-8 tracking-wider ">
+          <p className="text-6xl">{t("owner.description")}</p>
+          <p className="text-3xl">{t("owner.developer")}</p>
         </div>
-        <span className="flex h-9 gap-6">
+        <span
+          className={clsx("flex h-9 gap-6", {
+            "justify-start": locale === "en",
+            "justify-end": locale === "he" || locale === "ar",
+          })}
+        >
           <Link
             href="https://www.facebook.com/profile.php?id=100094054136377"
             target="_blank"
