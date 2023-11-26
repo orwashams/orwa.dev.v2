@@ -9,8 +9,8 @@ export default async function Home() {
   const locale = getCurrentLocale();
 
   return (
-    <main className="flex min-h-screen flex-col  items-center bg-gradient-to-b from-[#13172e] to-[#15162c] text-white">
-      <div className=" container flex flex-col gap-6 p-32">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#13172e] to-[#15162c] text-white">
+      <div className=" flex flex-col gap-6">
         <Header />
         <Divider />
         <Templates />

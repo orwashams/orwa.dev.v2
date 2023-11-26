@@ -16,13 +16,13 @@ const Header = async () => {
   const locale = getCurrentLocale();
 
   return (
-    <section className=" flex w-full items-stretch gap-6">
-      <div className="flex ">
+    <section className=" flex w-full flex-col items-stretch gap-6 md:flex-row">
+      <div className="h-fill relative flex w-full ">
         <Image
           src="/logo/white_svg.svg"
           alt="Logo"
-          width={900}
-          height={900}
+          fill
+          objectFit="contain"
           unoptimized
           priority
         />
@@ -31,7 +31,8 @@ const Header = async () => {
       <div
         className={clsx("flex flex-col  justify-between gap-9  text-3xl", {
           "font-encode": locale === "en",
-          "font-hebrew text-4xl": locale === "he",
+          "text-right font-hebrew text-4xl ": locale === "he",
+          "font-arabic text-right text-4xl": locale === "ar",
         })}
       >
         <p className="text-5xl">{t("owner.name")}</p>

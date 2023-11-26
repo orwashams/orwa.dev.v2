@@ -6,7 +6,8 @@ export default {
     extend: {
       fontFamily: {
         encode: ["var(--font-encode-sans-condensed)"],
-        hebrew: ["var(--font-noto-sans-hebrew)"],
+        hebrew: ["var(--font-amatic-sc)"],
+        arabic: ["var(--font-arabic)"],
       },
     },
   },
