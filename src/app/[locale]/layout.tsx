@@ -1,8 +1,7 @@
 import "~/styles/globals.css";
 
-import { Encode_Sans_Condensed, Vazirmatn, Amatic_SC } from "next/font/google";
+import { Encode_Sans_Condensed, Vazirmatn, Alef } from "next/font/google";
 import { cookies } from "next/headers";
-import { getCurrentLocale } from "~/locales/server";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -12,7 +11,7 @@ const encode_sans_condensed = Encode_Sans_Condensed({
   weight: "200",
 });
 
-const amatic_sc = Amatic_SC({
+const amatic_sc = Alef({
   subsets: ["hebrew"],
   variable: "--font-amatic-sc",
   weight: "700",
@@ -37,14 +36,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const locale = getCurrentLocale();
-
   return (
     <html
       lang="en"
-      className={`${encode_sans_condensed.variable} ${amatic_sc.variable} ${vazirmatn.variable} bg-gradient-to-b from-[#13172e] to-[#15162c]`}
+      className={`${encode_sans_condensed.variable} ${amatic_sc.variable} ${vazirmatn.variable}`}
     >
-      <body>
+      <body className=" bg-gradient-to-b from-[#13172e] to-[#15162c] text-white">
         <TRPCReactProvider cookies={cookies().toString()}>
           {children}
         </TRPCReactProvider>
