@@ -6,7 +6,7 @@ const LocaleSelect = () => {
   const locale = getCurrentLocale();
 
   return (
-    <div className="flex gap-4">
+    <div className="flex justify-center gap-4 md:justify-start ">
       <div className="bg-[#0d1124] p-5">
         <Link href={"/he"}>🇮🇱 עברית</Link>
       </div>
