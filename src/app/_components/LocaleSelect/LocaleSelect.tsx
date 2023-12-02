@@ -1,20 +1,23 @@
 import Link from "next/link";
 import React from "react";
-import { getCurrentLocale } from "~/locales/server";
 
 const LocaleSelect = () => {
-  const locale = getCurrentLocale();
-
   return (
     <div className="flex justify-center gap-4 md:justify-start ">
-      <div className="bg-[#0d1124] p-5">
-        <Link href={"/he"}>🇮🇱 עברית</Link>
+      <div className="flex">
+        <Link href={"/he"} className="bg-[#0d1124] p-5">
+          🇮🇱 עברית
+        </Link>
       </div>
-      <div className="bg-[#0d1124] p-5 font-encode font-bold">
-        <Link href={"/en"}>English 🇺🇸</Link>
+      <div className="flex">
+        <Link href={"/en"} className="bg-[#0d1124] p-5 font-encode font-bold">
+          English 🇺🇸
+        </Link>
       </div>
-      <div className="bg-[#0d1124] p-5 font-arabic">
-        <Link href={"/ar"}>🇸🇦 عربي</Link>
+      <div className="flex">
+        <Link href={"/ar"} className="bg-[#0d1124] p-5 font-arabic">
+          🇸🇦 عربي
+        </Link>
       </div>
     </div>
   );

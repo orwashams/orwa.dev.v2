@@ -41,7 +41,7 @@ export default function RootLayout({
       lang="en"
       className={`${encode_sans_condensed.variable} ${amatic_sc.variable} ${vazirmatn.variable}`}
     >
-      <body className=" bg-gradient-to-b from-[#13172e] to-[#15162c] text-white">
+      <body className="flex justify-center bg-gradient-to-b from-[#13172e] to-[#15162c] text-white">
         <TRPCReactProvider cookies={cookies().toString()}>
           {children}
         </TRPCReactProvider>
