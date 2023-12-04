@@ -6,6 +6,12 @@ export default {
     developer:
       "אתרי אינטרנט🌐, אפליקציות📱 ופתרונות תוכנה שעונים על הצרכים הספציפיים שלך",
   },
+  general: {
+    name: "שם",
+    description: "תיאור",
+    examples: "דוגמאות",
+    link: "קישור",
+  },
   templates: {
     e_commerce: {
       name: "אתר מסחר אלקטרוני",

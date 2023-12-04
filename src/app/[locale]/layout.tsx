@@ -1,4 +1,7 @@
+import "@mantine/core/styles.css";
 import "~/styles/globals.css";
+
+import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 
 import { Encode_Sans_Condensed, Vazirmatn, Alef } from "next/font/google";
 import { cookies } from "next/headers";
@@ -41,9 +44,12 @@ export default function RootLayout({
       lang="en"
       className={`${encode_sans_condensed.variable} ${amatic_sc.variable} ${vazirmatn.variable}`}
     >
+      <head>
+        <ColorSchemeScript />
+      </head>
       <body className="flex justify-center bg-gradient-to-b from-[#13172e] to-[#15162c] text-white">
         <TRPCReactProvider cookies={cookies().toString()}>
-          {children}
+          <MantineProvider>{children}</MantineProvider>
         </TRPCReactProvider>
       </body>
     </html>

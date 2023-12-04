@@ -6,6 +6,12 @@ export default {
     developer:
       "Websites🌐, mobile applications📱, or custom software tailored to meet your specific needs",
   },
+  general: {
+    name: "name",
+    description: "description",
+    examples: "examples",
+    link: "link",
+  },
   templates: {
     e_commerce: {
       name: "E-commerce",

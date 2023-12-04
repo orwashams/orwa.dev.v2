@@ -5,7 +5,7 @@ const Templates = async () => {
   const t = await getI18n();
 
   return (
-    <div className=" min-w-2xl flex w-full flex-col flex-wrap justify-evenly gap-5 md:flex-row">
+    <div className=" min-w-2xl flex w-full flex-col flex-wrap justify-between gap-5 sm:flex-row">
       <TemplateCard
         name={t("templates.e_commerce.name")}
         discription={t("templates.e_commerce.description")}

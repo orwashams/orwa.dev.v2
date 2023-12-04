@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getI18n, getCurrentLocale } from "~/locales/server";
+
 import {
-  faFacebookSquare,
-  faInstagram,
-  faTwitter,
-  faLinkedin,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconBrandLinkedin,
+  IconBrandGithub,
+} from "@tabler/icons-react";
 import { clsx } from "clsx";
 
 const Header = async () => {
   const t = await getI18n();
   const locale = getCurrentLocale();
+  const iconSize = 35;
 
   return (
     <section className="container flex w-full flex-col items-stretch gap-6 md:flex-row">
@@ -50,19 +51,19 @@ const Header = async () => {
             href="https://www.facebook.com/profile.php?id=100094054136377"
             target="_blank"
           >
-            <FontAwesomeIcon icon={faFacebookSquare} className="h-full" />
+            <IconBrandFacebook size={iconSize} />
           </Link>
           <Link href="https://www.instagram.com/orwa.s.shams/" target="_blank">
-            <FontAwesomeIcon icon={faInstagram} className="h-full" />
+            <IconBrandInstagram size={iconSize} />
           </Link>
           <Link href="https://twitter.com/orwa_dev" target="_blank">
-            <FontAwesomeIcon icon={faTwitter} className="h-full" />
+            <IconBrandTwitter size={iconSize} />
           </Link>
           <Link href="https://www.linkedin.com/in/orwa-sh/" target="_blank">
-            <FontAwesomeIcon icon={faLinkedin} className="h-full" />
+            <IconBrandLinkedin size={iconSize} />
           </Link>
           <Link href="https://github.com/OrwaShams" target="_blank">
-            <FontAwesomeIcon icon={faGithub} className="h-full" />
+            <IconBrandGithub size={iconSize} />
           </Link>
         </span>
       </div>
