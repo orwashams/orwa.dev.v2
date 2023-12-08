@@ -11,6 +11,7 @@ export default {
     description: "תיאור",
     examples: "דוגמאות",
     link: "קישור",
+    pick: "בחר",
   },
   templates: {
     e_commerce: {

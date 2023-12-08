@@ -17,7 +17,7 @@ const Header = async () => {
   const iconSize = 35;
 
   return (
-    <section className="container flex w-full flex-col items-stretch gap-6 md:flex-row">
+    <section className="container flex w-full max-w-full flex-col items-stretch justify-center gap-6 md:flex-row">
       <div className="flex h-auto w-full ">
         <Image
           src="/logo/white_svg.svg"

@@ -1,26 +1,28 @@
 import { clsx } from "clsx";
 
-import { getCurrentLocale } from "~/locales/server";
+import { getCurrentLocale, getI18n } from "~/locales/server";
 
 import {
   Card,
-  Image,
-  Text,
-  Badge,
   Button,
-  Group,
+  Modal,
   CardSection,
   Tabs,
   TabsList,
   TabsPanel,
   TabsTab,
 } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+
 import {
   IconPhoto,
   IconMessageCircle,
   IconSettings,
   IconNote,
+  Icon123,
 } from "@tabler/icons-react";
+import Link from "next/link";
+import { DetailsModal } from "../DetailsModal";
 
 type Props = {
   name: string;
@@ -32,57 +34,69 @@ type Props = {
   }>;
 };
 
-const TemplateCard = ({ name, discription, examples }: Props) => {
+const TemplateCard = async ({ name, discription, examples }: Props) => {
   const locale = getCurrentLocale();
+  const t = await getI18n();
 
   return (
-    // <div
-    //   className={clsx(
-    //     "flex w-full flex-col gap-2 rounded-xl border-2 bg-red-400 p-4 md:w-1/4",
-    //     {
-    //       "font-encode": locale === "en",
-    //       "text-right font-hebrew ": locale === "he",
-    //       "text-right font-arabic ": locale === "ar",
-    //     },
-    //   )}
-    // >
-    //   <p className=" text-3xl font-bold">{name}</p>
-    //   <p className="text-2xl">{discription}</p>
-    //   <div className="flex flex-col gap-2">
-    //     {examples.map((example) => {
-    //       return (
-    //         <div key={example.name} className="flex flex-col gap-1">
-    //           <p>{example.name}</p>
-    //           <p>{example.description}</p>
-    //           <p>{example.link}</p>
-    //         </div>
-    //       );
-    //     })}
-    //   </div>{" "}
-    <div className=" rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 font-semibold">
+    <div className=" rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-0.5 font-semibold">
       <Card
         shadow="sm"
         padding="lg"
         radius="md"
-        className="flex w-full bg-gray-900  text-white"
+        bg={"#314155"}
+        className=" text-white"
       >
-        <Tabs defaultValue="gallery">
-          <TabsList>
-            <TabsTab value="gallery" leftSection={<IconNote />}>
-              Description
-            </TabsTab>
-            <TabsTab value="messages" leftSection={<IconMessageCircle />}>
-              Examples
-            </TabsTab>
-          </TabsList>
+        <CardSection dir={locale === "en" ? "ltr" : "rtl"}>
+          <div className="flex  justify-center p-3">
+            <p className="text-center text-3xl">{name}</p>
+          </div>
+        </CardSection>
 
-          <TabsPanel value="gallery">Description tab content</TabsPanel>
+        <CardSection>
+          <Tabs defaultValue="description" color="gray">
+            <TabsList grow dir={locale === "en" ? "ltr" : "rtl"}>
+              <TabsTab value="description" className="text-xl">
+                {t("general.description")}
+              </TabsTab>
+              <TabsTab value="examples" className="text-xl">
+                {t("general.examples")}
+              </TabsTab>
+            </TabsList>
 
-          <TabsPanel value="messages">Examples tab content</TabsPanel>
-        </Tabs>
+            <TabsPanel
+              value="description"
+              dir={locale === "en" ? "ltr" : "rtl"}
+              className="p-4"
+            >
+              <div className="text-center text-xl">{discription}</div>
+            </TabsPanel>
+
+            <TabsPanel
+              value="examples"
+              dir={locale === "en" ? "ltr" : "rtl"}
+              className="p-4"
+            >
+              <div className="flex flex-col items-center gap-2  text-xl text-blue-400">
+                {examples.map((example) => {
+                  return (
+                    <Link
+                      key={example.name}
+                      href={example.link}
+                      target="_blank"
+                    >
+                      {example.name}
+                    </Link>
+                  );
+                })}
+              </div>
+            </TabsPanel>
+          </Tabs>
+        </CardSection>
+
+        <DetailsModal name={name} />
       </Card>
     </div>
-    // </div>
   );
 };
 

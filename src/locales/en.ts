@@ -8,9 +8,10 @@ export default {
   },
   general: {
     name: "name",
-    description: "description",
-    examples: "examples",
+    description: "Description",
+    examples: "Examples",
     link: "link",
+    pick: "Pick",
   },
   templates: {
     e_commerce: {

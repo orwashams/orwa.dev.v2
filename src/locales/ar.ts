@@ -9,13 +9,14 @@ export default {
   general: {
     name: "اسم",
     description: "وصف",
-    examples: "مثالات",
+    examples: "أمثلة",
     link: "رابط",
+    pick: "أختر",
   },
   templates: {
     e_commerce: {
-      name: "التجارة الإلكترونية",
-      description: "المنصات الإلكترونية لبيع وشراء السلع أو الخدمات",
+      name: "تجارة إلكترونية",
+      description: "منصات إلكترونية لبيع وشراء السلع أو الخدمات",
       examples: {
         amazon: {
           name: "أمازون",
@@ -58,7 +59,7 @@ export default {
       },
     },
     personal_website: {
-      name: "المدونة/الموقع الشخصي",
+      name: "مدونة/موقع الشخصي",
       description: "منصات فردية أو تنظيمية لتبادل المعلومات أو الآراء",
       examples: {
         medium: {
@@ -81,7 +82,7 @@ export default {
       },
     },
     news_media_website: {
-      name: "موقع الأخبار والإعلام",
+      name: "موقع أخبار وإعلام",
       description:
         "المواقع التي تقدم الأخبار والمقالات ومحتوى الوسائط المتعددة",
       examples: {
@@ -128,7 +129,7 @@ export default {
       },
     },
     corporate_website: {
-      name: "موقع الشركة",
+      name: "موقع شركة",
       description:
         "التواجد عبر الإنترنت للشركات، وغالبًا ما يتضمن معلومات الشركة وخدماتها",
       examples: {
@@ -153,7 +154,7 @@ export default {
       },
     },
     government_website: {
-      name: "الموقع الإلكتروني الحكومي",
+      name: "موقع إلكتروني حكومي",
       description: "المواقع الرسمية للجهات الحكومية، تقديم المعلومات والخدمات",
       examples: {
         nasa: {
@@ -174,9 +175,9 @@ export default {
       },
     },
     web_application: {
-      name: "تطبيق الويب",
+      name: "تطبيق ويب",
       description:
-        "التطبيقات التفاعلية التي يمكن الوصول إليها من خلال متصفح الويب، بدءًا من البريد الإلكتروني إلى أدوات إدارة المشروع",
+        "تطبيقات تفاعلية التي يمكن الوصول إليها من خلال متصفح الويب، بدءًا من البريد الإلكتروني إلى أدوات إدارة المشروع",
       examples: {
         excalidraw: {
           name: "إكسكاليدراو",
@@ -197,7 +198,7 @@ export default {
       },
     },
     forums_and_communities: {
-      name: "المنتديات والمجتمعات",
+      name: "منتديات ومجتمعات",
       description:
         "المنتديات أو المجتمعات عبر الإنترنت لتبادل المعلومات والآراء والمناقشات",
       examples: {
@@ -220,7 +221,7 @@ export default {
       },
     },
     booking_reservation_system: {
-      name: "نظام الحجز",
+      name: "نظام حجز",
       description: "أنظمة حجز الخدمات",
       examples: {
         airbnb: {
@@ -242,7 +243,7 @@ export default {
       },
     },
     utility_website: {
-      name: "موقع الأداة المساعدة",
+      name: "موقع أدوات المساعدة",
       description:
         "الأدوات والخدمات التي تلبي احتياجات محددة، مثل التنبؤات الجوية أو محولات العملات",
       examples: {
